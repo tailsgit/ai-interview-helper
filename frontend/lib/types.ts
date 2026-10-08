@@ -1,0 +1,10 @@
+export type Level = "Junior" | "Mid" | "Senior";
+export type Topic = "Arrays" | "Trees" | "Graphs" | "General";
+export type Question = {id: string; title: string; prompt: string; examples: string[]; difficulty: Level; topic: Topic; follow_up_angles: string[]};
+export type Execution = {passed: number; total: number; failed_cases: string[]; expected_complexity: string; runtime_ms: number};
+export type CodingResult = {transcript: string; execution_results: Execution};
+export type Turn = {role: "interviewer" | "candidate"; text: string; angle?: string};
+export type Followup = {followup_text: string; angle_used: string};
+export type Report = {objective: {tests_passed: string; expected_complexity: string; stated_complexity: string}; subjective: {strengths: string[]; weaknesses: string[]; suggestions: string[]}};
+export type FollowupRequest = {question_id: string; transcript: string; code: string; execution_results: Execution; conversation_history: Turn[]; remaining_angles: string[]};
+export type ReportRequest = {question_id: string; code: string; execution_results: Execution; full_conversation: Turn[]};
